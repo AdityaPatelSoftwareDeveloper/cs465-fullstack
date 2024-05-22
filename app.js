@@ -12,10 +12,10 @@ var handlebars = require("hbs");
 var app = express();
 
 // view engine setup
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname,"app_server", "views"));
 
 // register handlebars partials (https://www.npmjs.com/package/hbs)
-handlebars.registerPartials(__dirname + "/app_server/veiws/partials");
+handlebars.registerPartials(__dirname + "/app_server/views/partials");
 app.set("view engine", "hbs");
 
 app.use(logger("dev"));
