@@ -5,9 +5,12 @@ const router = express.Router(); // Router logic
 const tripsController = require("../controllers/trips");
 
 // define route for our trips endpoint
-router.route("/trips").get(tripsController.tripsList); // GET Method routes tripList
+router.route("/trips").get(tripsController.tripsList).post(tripsAddTrip); // GET Method routes tripList
 
 // Get Method routes tripsFindByCode - require parameter
-router.route("/trips/:tripCode").get(tripsController.tripsFindbyCode);
+router
+  .route("/trips/:tripCode")
+  .get(tripsController.tripsFindbyCode)
+  .put(tripsController.tripsUpdateTrip);
 
 module.exports = router;
