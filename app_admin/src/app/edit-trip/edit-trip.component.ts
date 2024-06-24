@@ -7,7 +7,7 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { TripDataService } from '../services/trip-data/trip-data.service';
+import { TripDataService } from '../services/trip-data.service';
 import { Trip } from '../models/trip';
 
 @Component({
@@ -44,13 +44,13 @@ export class EditTripComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       _id: [],
       code: [tripCode, Validators.required],
-      name: [Validators.required],
-      length: [Validators.required],
-      start: [Validators.required],
-      resort: [Validators.required],
-      perPerson: [Validators.required],
-      image: [Validators.required],
-      description: [Validators.required],
+      name: ['', Validators.required],
+      length: ['', Validators.required],
+      start: ['', Validators.required],
+      resort: ['', Validators.required],
+      perPerson: ['', Validators.required],
+      image: ['', Validators.required],
+      description: ['', Validators.required],
     });
 
     this.tripDataService.getTrip(tripCode).subscribe({
